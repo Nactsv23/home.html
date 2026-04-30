@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>University Of Eastern Pangasinan | Contact Us </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #faf5f0 0%, #f3ede8 100%);
+      color: #2c1810;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ========== NAVBAR - MAROON THEME ========== */
+    header {
+      background: rgba(118, 35, 47, 0.96);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(201, 130, 98, 0.3);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-area img {
+      height: 58px;
+      width: auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+      border-radius: 14px;
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      background: linear-gradient(135deg, #e8c9b0, #f5d5b8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #f5d5b8;
+    }
+
+    .nav-links ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #f5e6d9;
+      transition: 0.25s;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e8a87b;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #e8a87b;
+    }
+
+    .portal-btn {
+      background: #8b3c2c;
+      color: white !important;
+      padding: 8px 24px !important;
+      border-radius: 40px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .portal-btn::after {
+      display: none !important;
+    }
+
+    .portal-btn:hover {
+      background: #a0522d;
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #e8c9b0;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #76232f, #5c1a24);
+      backdrop-filter: blur(20px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      text-align: center;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f5e6d9;
+      padding: 12px 28px;
+      border-radius: 60px;
+      transition: all 0.2s;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(232, 168, 123, 0.2);
+      color: #e8a87b;
+    }
+
+    .mobile-menu .portal-btn-mobile {
+      background: #8b3c2c;
+      color: white !important;
+    }
+
+    .close-mobile {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #e8c9b0;
+      cursor: pointer;
+    }
+
+    /* Page Header - Maroon Theme */
+    .page-header {
+      text-align: center;
+      margin: 50px 0 20px;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      background: linear-gradient(125deg, #76232f, #b55a3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #8b3c2c, #b55a3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      border-bottom: 3px solid #e8a87b;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #8b5a4a;
+      font-size: 1.1rem;
+      margin-top: 12px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 40px 0 70px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 48px;
+      margin-top: 40px;
+    }
+
+    /* Contact Info Cards */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .info-card {
+      background: rgba(255, 253, 245, 0.95);
+      border-radius: 40px;
+      padding: 28px 24px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid #f0d5c0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardReveal 0.6s forwards;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .info-card:nth-child(1) { animation-delay: 0.1s; }
+    .info-card:nth-child(2) { animation-delay: 0.2s; }
+    .info-card:nth-child(3) { animation-delay: 0.3s; }
+    .info-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes cardReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      background: white;
+      border-color: #d4a07a;
+      box-shadow: 0 15px 30px rgba(118, 35, 47, 0.1);
+    }
+
+    .info-icon {
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #fef0e8, #fdf0e8);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #8b3c2c;
+      transition: all 0.3s;
+    }
+
+    .info-card:hover .info-icon {
+      background: #76232f;
+      color: white;
+    }
+
+    .info-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #76232f;
+    }
+
+    .info-content p, .info-content a {
+      color: #4a2a1e;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .info-content a:hover {
+      color: #8b3c2c;
+    }
+
+    /* Map Card */
+    .map-card {
+      background: rgba(255, 253, 245, 0.95);
+      border-radius: 40px;
+      padding: 24px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid #f0d5c0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardReveal 0.6s forwards;
+      animation-delay: 0.2s;
+    }
+
+    .map-card:hover {
+      transform: translateY(-8px);
+      background: white;
+      border-color: #d4a07a;
+      box-shadow: 0 15px 30px rgba(118, 35, 47, 0.1);
+    }
+
+    .map-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: #76232f;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .map-container {
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 250px;
+      border: 0;
+    }
+
+    .address-text {
+      color: #4a2a1e;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    /* Contact Form */
+    .form-section {
+      background: rgba(255, 253, 245, 0.95);
+      border-radius: 48px;
+      padding: 40px;
+      margin-top: 48px;
+      border: 1px solid #f0d5c0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardReveal 0.6s forwards;
+      animation-delay: 0.3s;
+    }
+
+    .form-section h2 {
+      font-size: 1.8rem;
+      color: #76232f;
+      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .form-section p {
+      color: #8b5a4a;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #e8c9b0;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s;
+      background: white;
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: #8b3c2c;
+      box-shadow: 0 0 0 3px rgba(139, 60, 44, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #76232f, #8b3c2c);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 60px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(118, 35, 47, 0.4);
+      gap: 15px;
+    }
+
+    /* Social Links */
+    .social-links-section {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .social-links-section h3 {
+      color: #76232f;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      width: 55px;
+      height: 55px;
+      background: rgba(255, 253, 245, 0.95);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #8b3c2c;
+      transition: all 0.3s;
+      text-decoration: none;
+      border: 1px solid #f0d5c0;
+    }
+
+    .social-icon:hover {
+      background: #76232f;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+      background: #5c1a24;
+      background-image: radial-gradient(circle at 10% 30%, #76232f, #4a121a);
+      color: #f5e6d9;
+      padding: 40px 0 32px;
+      margin-top: 70px;
+      text-align: center;
+      border-top-left-radius: 48px;
+      border-top-right-radius: 48px;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .logo-area img {
+        height: 48px;
+      }
+      .logo-text h1 {
+        font-size: 1.25rem;
+      }
+      .page-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .form-section {
+        padding: 28px;
+      }
+      .container {
+        padding: 0 20px;
+      }
+      .page-title {
+        font-size: 1.9rem;
+      }
+      .info-card {
+        padding: 20px;
+      }
+      .info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .info-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .form-section {
+        padding: 20px;
+      }
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Body Background Decor */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.04"><path fill="%238b3c2c" d="M60 70L80 50L110 70L130 45L160 75L140 100L165 130L135 150L110 125L85 148L60 125L35 148L15 120L40 98L20 70L45 52Z"/><circle cx="130" cy="40" r="8" fill="%23a0522d"/><circle cx="45" cy="140" r="12" fill="%2376232f"/></svg>');
+      background-repeat: repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo-area">
+        <img src="logo.png" alt="UEP Binalonan">
+        <div class="logo-text">
+          <h1>University Of Eastern Pangasinan</h1>
+          <p>Uprightness · Excellence · Passion</p>
+        </div>
+      </div>
+      <div class="nav-links" id="desktopNav">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="course.html">Courses</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+           <li><a href="enroll.html">Enroll Now</a></li>
+          <li><a href="portal.html" class="portal-btn">Portal <i class="fas fa-arrow-right-to-bracket"></i></a></li>
+        </ul>
+      </div>
+      <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-mobile" id="closeMobileBtn"><i class="fas fa-times-circle"></i></button>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="course.html">Courses</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="#" class="portal-btn-mobile">📌 Student Portal</a></li>
+  </ul>
+</div>
+
+<main>
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">Get in <span class="highlight">Touch</span></h1>
+      <p class="subtitle">We'd love to hear from you. Reach out to us for any inquiries, concerns, or feedback.</p>
+    </div>
+
+    <section class="contact-section">
+      <div class="contact-grid">
+        <!-- Contact Information Cards -->
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-content">
+              <h3>Visit Us</h3>
+              <p>McArthur Highway, Binalonan<br>Pangasinan, Philippines 2436</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="info-content">
+              <h3>Call Us</h3>
+              <p>Main: (075) 562-1234<br>Admissions: (075) 562-5678</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div class="info-content">
+              <h3>Email Us</h3>
+              <p><a href="mailto:info@uep.edu.ph">info@uep.edu.ph</a><br><a href="mailto:admissions@uep.edu.ph">admissions@uep.edu.ph</a></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-clock"></i></div>
+            <div class="info-content">
+              <h3>Office Hours</h3>
+              <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 12:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Card -->
+        <div class="map-card">
+          <h3><i class="fas fa-map-marked-alt"></i> Our Location</h3>
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15300.900936665996!2d120.585641!3d16.326145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391451e4a8bd7f1%3A0x4d8e6f6e5c4d2a0!2sBinalonan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <p class="address-text"><i class="fas fa-location-dot" style="color:#8b3c2c; margin-right:8px;"></i> UEP Binalonan Campus is located along McArthur Highway, easily accessible by public transportation from surrounding municipalities.</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="form-section">
+        <h2><i class="fas fa-paper-plane"></i> Send us a Message</h2>
+        <p>Have questions about admissions, programs, or campus life? Fill out the form below and we'll get back to you promptly.</p>
+        
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" id="fullName" placeholder="Your Full Name *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address *" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number (Optional)">
+          </div>
+          <div class="form-group">
+            <select id="subject">
+              <option value="general">General Inquiry</option>
+              <option value="admissions">Admissions & Enrollment</option>
+              <option value="scholarship">Scholarship Information</option>
+              <option value="complaint">Feedback / Complaint</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder="Your Message *" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message <i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="social-links-section">
+        <h3><i class="fas fa-share-alt"></i> Connect with Us</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><i class="fas fa-university"></i> University of Eastern Pangasinan – Binalonan Campus | nurturing excellence deeply rooted in community</p>
+    <p style="margin-top: 12px; font-size: 0.85rem;"><i class="fas fa-map-pin"></i> Binalonan, Pangasinan, Philippines 2436 | <i class="fas fa-envelope"></i> info@uep.edu.ph</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // ========== MOBILE NAVIGATION ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('closeMobileBtn');
+    const body = document.body;
+
+    if (hamburger && mobileMenu && closeBtn) {
+      hamburger.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+        body.style.overflow = 'hidden';
+      });
+      closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        body.style.overflow = '';
+      });
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          body.style.overflow = '';
+        });
+      });
+    }
+
+    // ========== ACTIVE NAV LINK ==========
+    const desktopLinks = document.querySelectorAll('#desktopNav a');
+    desktopLinks.forEach(link => {
+      if (link.innerText.trim() === 'Contact') {
+        link.classList.add('active');
+      }
+      link.addEventListener('click', function() {
+        desktopLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // ========== FORM SUBMISSION HANDLER ==========
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const subjectSelect = document.getElementById('subject');
+        const subject = subjectSelect.options[subjectSelect.selectedIndex].text;
+        const message = document.getElementById('message').value;
+        
+        if (!fullName || !email || !message) {
+          alert("Please fill in all required fields.");
+          return;
+        }
+        
+        // Simulate form submission
+        alert(`📧 Message Sent!\n\nThank you ${fullName} for reaching out to UEP Binalonan.\n\nSubject: ${subject}\nWe will respond to your inquiry at ${email} within 1-2 business days.\n\nYour message: "${message.substring(0, 100)}${message.length > 100 ? '...' : ''}"`);
+        
+        // Reset form
+        contactForm.reset();
+      });
+    }
+
+    // ========== FOOTER DYNAMIC YEAR ==========
+    const footerPara = document.querySelector('footer p:first-child');
+    if (footerPara) {
+      const year = new Date().getFullYear();
+      footerPara.innerHTML = `<i class="fas fa-tree"></i> ${year} University of Eastern Pangasinan – Binalonan Campus | nurturing excellence deeply rooted in community`;
+    }
+
+    // ========== INFO CARD CLICK INTERACTION ==========
+    document.querySelectorAll('.info-card, .map-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          if (this.classList.contains('info-card')) this.style.transform = '';
+          else if (this.classList.contains('map-card')) this.style.transform = '';
+        }, 150);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

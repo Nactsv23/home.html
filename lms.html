@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>University Of Eastern Pangasinan| LMS Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: url('univ2.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Dark overlay for better readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    /* Login Section */
+    .login-section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      max-width: 480px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* TRANSPARENT LOGIN CARD - Semi-transparent with blur effect */
+    .login-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 48px 40px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .login-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Logo / Header */
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+ .login-header img {
+      width: 200px;
+    }
+
+
+
+
+    .logo-circle {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, rgba(118, 35, 47, 0.9), rgba(139, 60, 44, 0.9));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+    }
+
+    .logo-circle img {
+      width: 50px;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .login-header h2 {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      margin-bottom: 8px;
+    }
+
+    .login-header p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #f5e6d9;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8b3c2c;
+      font-size: 1rem;
+      z-index: 2;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 14px 16px 14px 48px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s;
+      background: rgba(255, 255, 255, 0.85);
+      color: #2c1810;
+    }
+
+    .input-wrapper input:focus {
+      outline: none;
+      border-color: #8b3c2c;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(139, 60, 44, 0.3);
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: #f5e6d9;
+    }
+
+    .checkbox-label input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #8b3c2c;
+    }
+
+    .forgot-link {
+      color: #f5e6d9;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .forgot-link:hover {
+      color: #e8a87b;
+      text-decoration: underline;
+    }
+
+    .login-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #76232f, #8b3c2c);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 40px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      gap: 15px;
+    }
+
+    /* Divider */
+    .divider {
+      text-align: center;
+      margin: 28px 0;
+      position: relative;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .divider span {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0 16px;
+      position: relative;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;
+      border-radius: 30px;
+    }
+
+    /* Alert Messages */
+    .alert {
+      padding: 12px 16px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideDown 0.3s ease;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .alert-error {
+      color: #ffcccc;
+    }
+
+    .alert-success {
+      color: #ccffcc;
+    }
+
+    .alert i {
+      font-size: 1rem;
+    }
+
+    /* Password Toggle */
+    .password-toggle {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #8b5a4a;
+      z-index: 2;
+      background: transparent;
+      font-size: 1.1rem;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s ease;
+    }
+
+    .password-toggle:hover {
+      color: #76232f;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 32px 24px;
+        margin: 0 16px;
+      }
+      .login-header h2 {
+        font-size: 1.5rem;
+      }
+      .logo-circle {
+        width: 80px;
+        height: 80px;
+      }
+      .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          
+            <img src="logo.png" alt="UEP Logo">
+    
+          <h2>LMS Portal Login</h2>
+          <p>Access your online courses and learning materials</p>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label>Student ID / Email</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" placeholder="Enter your student ID or email" autocomplete="username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-wrapper">
+              <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+              <i class="fas fa-eye-slash password-toggle" id="passwordToggle"></i>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMe"> Remember me
+            </label>
+            <a href="#" class="forgot-link" id="forgotPassword">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-btn">
+            <i class="fas fa-sign-in-alt"></i> Login to LMS
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="divider">
+          <span>Secure Learning Environment</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function() {
+    // Show alert messages
+    function showAlert(message, type = 'error') {
+      const alertContainer = document.getElementById('alertContainer');
+      if (!alertContainer) return;
+      
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type}`;
+      alertDiv.innerHTML = `<i class="fas ${type === 'error' ? 'fa-exclamation-circle' : 'fa-check-circle'}"></i> ${message}`;
+      
+      alertContainer.innerHTML = '';
+      alertContainer.appendChild(alertDiv);
+      
+      setTimeout(() => {
+        if (alertDiv && alertDiv.parentNode) alertDiv.remove();
+      }, 5000);
+    }
+
+    // Password visibility toggle
+    function initPasswordToggle() {
+      const toggle = document.getElementById('passwordToggle');
+      const passwordField = document.getElementById('password');
+      if (toggle && passwordField) {
+        toggle.addEventListener('click', () => {
+          const type = passwordField.type === 'password' ? 'text' : 'password';
+          passwordField.type = type;
+          toggle.classList.toggle('fa-eye-slash');
+          toggle.classList.toggle('fa-eye');
+          toggle.style.color = type === 'text' ? '#76232f' : '#8b5a4a';
+        });
+      }
+    }
+
+    // Login form handler
+    const form = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const rememberCheck = document.getElementById('rememberMe');
+
+    // Load remembered username if exists
+    if (localStorage.getItem('lms_rememberedUser')) {
+      usernameInput.value = localStorage.getItem('lms_rememberedUser');
+      rememberCheck.checked = true;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+      
+      // Clear previous alerts
+      document.getElementById('alertContainer').innerHTML = '';
+      
+      if (!username) {
+        showAlert('❌ Please enter your Student ID or Email address.', 'error');
+        usernameInput.focus();
+        return;
+      }
+      
+      if (!password) {
+        showAlert('❌ Please enter your password.', 'error');
+        passwordInput.focus();
+        return;
+      }
+      
+      if (password.length < 6) {
+        showAlert('❌ Password must be at least 6 characters long.', 'error');
+        passwordInput.focus();
+        return;
+      }
+      
+      // Demo credentials for LMS
+      const validStudent = (username === '2024-00123' || username === 'student@uep.edu.ph');
+      const validPassword = (password === 'password123');
+      
+      if (validStudent && validPassword) {
+        if (rememberCheck.checked) {
+          localStorage.setItem('lms_rememberedUser', username);
+        } else {
+          localStorage.removeItem('lms_rememberedUser');
+        }
+        
+        showAlert('✅ Login successful! Redirecting to LMS dashboard...', 'success');
+        
+        setTimeout(() => {
+          alert('🎓 Welcome to UEP Learning Management System!\n\nYou have successfully logged in.\n\nThis is a demo version. In the full system, you would be redirected to your personalized course dashboard.\n\n📌 Demo credentials:\n• Student ID: 2024-00123\n• Email: student@uep.edu.ph\n• Password: password123');
+          // Uncomment the line below to redirect after demo:
+          // window.location.href = 'lms-dashboard.html';
+        }, 1500);
+      } else {
+        showAlert('❌ Invalid Student ID/Email or password.\n\nDemo: student@uep.edu.ph / password123', 'error');
+        passwordInput.value = '';
+        passwordInput.focus();
+      }
+    });
+
+    // Forgot password handler
+    const forgotLink = document.getElementById('forgotPassword');
+    forgotLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = prompt('Please enter your registered email address to reset your password:');
+      if (email && email.includes('@') && email.includes('.')) {
+        alert(`Password reset link sent to ${email}\n\nPlease check your inbox.`);
+        showAlert('📨 Password reset email sent!', 'success');
+      } else if (email) {
+        alert('Please enter a valid email address.');
+      }
+    });
+
+    // Field blur validation
+    usernameInput.addEventListener('blur', () => {
+      usernameInput.style.borderColor = usernameInput.value.trim() ? '#8b3c2c' : 'rgba(255,255,255,0.5)';
+    });
+    passwordInput.addEventListener('blur', () => {
+      passwordInput.style.borderColor = passwordInput.value ? (passwordInput.value.length < 6 ? '#ff9999' : '#8b3c2c') : 'rgba(255,255,255,0.5)';
+    });
+
+    initPasswordToggle();
+  })();
+</script>
+</body>
+</html>

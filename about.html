@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>University Of Eastern Pangasinan | About </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #faf5f0 0%, #f3ede8 100%);
+      color: #2c1810;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ========== RESPONSIVE NAVBAR - MAROON THEME ========== */
+    header {
+      background: rgba(118, 35, 47, 0.96);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(201, 130, 98, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-area img {
+      height: 58px;
+      width: auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+      border-radius: 14px;
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      background: linear-gradient(135deg, #e8c9b0, #f5d5b8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #f5d5b8;
+    }
+
+    /* Desktop Navigation */
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #f5e6d9;
+      transition: 0.25s;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e8a87b;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #e8a87b;
+    }
+
+    .portal-btn {
+      background: #8b3c2c;
+      color: white !important;
+      padding: 8px 24px !important;
+      border-radius: 40px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .portal-btn::after {
+      display: none !important;
+    }
+
+    .portal-btn:hover {
+      background: #a0522d;
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #e8c9b0;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #76232f, #5c1a24);
+      backdrop-filter: blur(20px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      text-align: center;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f5e6d9;
+      padding: 12px 28px;
+      border-radius: 60px;
+      transition: all 0.2s;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(232, 168, 123, 0.2);
+      color: #e8a87b;
+    }
+
+    .mobile-menu .portal-btn-mobile {
+      background: #8b3c2c;
+      color: white !important;
+    }
+
+    .close-mobile {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #e8c9b0;
+      cursor: pointer;
+    }
+
+    /* Page Title - Maroon Theme */
+    .page-title {
+      font-size: 3rem;
+      text-align: center;
+      margin: 50px 0 20px;
+      background: linear-gradient(125deg, #76232f, #b55a3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #8b3c2c, #b55a3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      border-bottom: 3px solid #e8a87b;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    /* Cards Grid - Maroon Theme */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin: 40px 0 30px;
+    }
+
+    .card {
+      flex: 1 1 280px;
+      background: rgba(255, 253, 245, 0.95);
+      backdrop-filter: blur(2px);
+      border-radius: 40px;
+      padding: 28px 24px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(69, 42, 12, 0.15);
+      border: 1px solid #f0d5c0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardReveal 0.6s forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes cardReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      background: white;
+      border-color: #d4a07a;
+      box-shadow: 0 28px 38px -12px rgba(118, 35, 47, 0.25);
+    }
+
+    .card h3 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      background: linear-gradient(135deg, #76232f, #8b3c2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: #4a2a1e;
+    }
+
+    .card ul {
+      margin-left: 1.2rem;
+      margin-top: 6px;
+    }
+
+    .card li {
+      margin: 8px 0;
+    }
+
+    /* Dynamic Showcase - Maroon Theme */
+    .dynamic-showcase {
+      background: linear-gradient(125deg, #fdf6f0, #fef0e8);
+      border-radius: 48px;
+      padding: 40px 36px;
+      margin: 44px 0 36px;
+      box-shadow: 0 18px 32px rgba(118, 35, 47, 0.1);
+      border: 1px solid #e8d5c8;
+    }
+
+    .university-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      border: 3px solid #f5e6d9;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-btn {
+      background: #fff5ee;
+      border: none;
+      padding: 12px 28px;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      color: #76232f;
+      border: 1px solid #e8c9b0;
+    }
+
+    .toggle-btn.active {
+      background: #76232f;
+      color: white;
+      border-color: #76232f;
+      box-shadow: 0 8px 18px rgba(118, 35, 47, 0.3);
+    }
+
+    .toggle-btn:hover {
+      background: #8b3c2c;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .dynamic-content {
+      background: rgba(255, 255, 245, 0.95);
+      backdrop-filter: blur(4px);
+      border-radius: 38px;
+      padding: 30px 34px;
+      transition: all 0.3s ease;
+      min-height: 240px;
+      border-left: 8px solid #8b3c2c;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .dynamic-content h2 {
+      font-size: 1.9rem;
+      margin-bottom: 16px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #76232f, #8b3c2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .dynamic-content p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #4a2a1e;
+    }
+
+    /* Stats Row - Maroon Theme */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 22px;
+      margin: 40px 0 28px;
+    }
+
+    .stat-item {
+      flex: 1;
+      background: linear-gradient(145deg, #fff9f5, #fff5ee);
+      backdrop-filter: blur(3px);
+      padding: 28px 12px;
+      text-align: center;
+      border-radius: 42px;
+      transition: all 0.3s ease;
+      border: 1px solid #f0d5c0;
+      cursor: pointer;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-8px);
+      background: #fffaf5;
+      border-color: #d4a07a;
+      box-shadow: 0 15px 30px rgba(118, 35, 47, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 800;
+      background: linear-gradient(145deg, #76232f, #8b3c2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      color: #8b5a4a;
+    }
+
+    /* Image Badge Group - Maroon Theme */
+    .image-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .image-badge-item {
+      flex: 1 1 200px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-badge-item img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: white;
+      padding: 15px;
+      border: 2px solid #f0d5c0;
+    }
+
+    .image-badge-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .image-badge-item:hover img {
+      box-shadow: 0 15px 30px rgba(118, 35, 47, 0.25);
+      border-color: #8b3c2c;
+    }
+
+    .image-badge-item p {
+      margin-top: 12px;
+      font-weight: 700;
+      color: #76232f;
+      font-size: 0.85rem;
+    }
+
+    .content-card {
+      background: rgba(254, 245, 228, 0.9);
+      border-radius: 44px;
+      margin-top: 25px;
+      padding: 28px 32px;
+      border: 1px solid #f0d5c0;
+    }
+
+    .content-card h3 {
+      color: #76232f;
+    }
+
+    /* Footer - Maroon Theme */
+    footer {
+      background: #5c1a24;
+      background-image: radial-gradient(circle at 10% 30%, #76232f, #4a121a);
+      color: #f5e6d9;
+      padding: 40px 0 32px;
+      margin-top: 70px;
+      text-align: center;
+      border-top-left-radius: 48px;
+      border-top-right-radius: 48px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .page-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-area img {
+        height: 48px;
+      }
+      .logo-text h1 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .cards-grid {
+        flex-direction: column;
+      }
+      .stats-row {
+        flex-direction: column;
+      }
+      .dynamic-content h2 {
+        font-size: 1.7rem;
+      }
+      .dynamic-showcase {
+        padding: 28px 20px;
+      }
+      .image-badge-item {
+        flex: 1 1 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 18px;
+      }
+      .page-title {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 20px;
+      }
+      .toggle-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+      }
+      .dynamic-content {
+        padding: 20px;
+      }
+      .image-badge-group {
+        gap: 15px;
+      }
+      .image-badge-item img {
+        max-width: 120px;
+        padding: 10px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeRise {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .dynamic-content {
+      animation: fadeRise 0.35s ease-out;
+    }
+
+    /* Body Background Decor */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.04"><path fill="%238b3c2c" d="M60 70L80 50L110 70L130 45L160 75L140 100L165 130L135 150L110 125L85 148L60 125L35 148L15 120L40 98L20 70L45 52Z"/><circle cx="130" cy="40" r="8" fill="%23a0522d"/><circle cx="45" cy="140" r="12" fill="%2376232f"/></svg>');
+      background-repeat: repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo-area">
+        <img src="logo.png" alt="UEP Binalonan">
+        <div class="logo-text">
+          <h1>University Of Eastern Pangasinan</h1>
+          <p>Uprightness · Excellence · Passion</p>
+        </div>
+      </div>
+      <div class="nav-links" id="desktopNav">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="course.html">Courses</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+           <li><a href="enroll.html">Enroll Now</a></li>
+          <li><a href="portal.html" class="portal-btn">Portal <i class="fas fa-arrow-right-to-bracket"></i></a></li>
+        </ul>
+      </div>
+      <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-mobile" id="closeMobileBtn"><i class="fas fa-times-circle"></i></button>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="course.html">Courses</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#" class="portal-btn-mobile">📌 Student Portal</a></li>
+  </ul>
+</div>
+
+<main>
+  <div class="container">
+    <h1 class="page-title">About <span class="highlight">University of Eastern Pangasinan</span></h1>
+
+    <!-- Animated Cards Grid -->
+    <div class="cards-grid">
+      <div class="card">
+        <h3>📜 Story time</h3>
+        <p>The University of Eastern Pangasinan is a local university in Binalonan, Pangasinan, Philippines, created to give accessible college education to students in the eastern part of the province. It was founded in 2005 through the initiative of local leaders, especially then Binalonan Mayor (now Governor) Ramon “Monmon” Guico III, with the goal of making higher education more available to ordinary families in the area.
+In its early days, UEP started with very humble beginnings. It was first planned as part of a vision to build a “world-class” but affordable university for students who could not easily go to schools in big cities. The idea was to provide programs that are useful for jobs and community development. 
+
+<br><br>
+The university began operations in the mid-2000s and grew quickly. It started offering programs like Business Administration, Education, Information Technology, Criminology, Midwifery, and Hospitality Management. Over time, more buildings and facilities were added, including a main tower that can accommodate thousands of students.
+As it developed, UEP also became active in community service—holding outreach programs, training, and local development projects to help nearby towns. It is known not only as a school but also as a partner in improving education and livelihood in the community.
+Today, UEP continues to grow as one of the important local universities in Pangasinan, focusing on accessible education, skills training, and community involvement..</p>
+      </div>
+     
+    </div>
+
+    <!-- Interactive Mission/Vision Toggle -->
+    <div class="dynamic-showcase">
+      <img src="univ2.jpg" alt="UEP Binalonan Campus" class="university-image" width="100%" onerror="this.src='https://placehold.co/1000x700/76232f/f5e6d9?text=UEP+Campus'">
+      
+      <div class="toggle-buttons">
+        <button class="toggle-btn active" id="btnMission">📖 Mission</button>
+        <button class="toggle-btn" id="btnVision">🔭 Vision</button>
+        <button class="toggle-btn" id="btnPhilosophy">💎 Core Values</button>
+      </div>
+
+      <div class="dynamic-content" id="dynamicContentArea">
+        <h2>Mission</h2>
+        <p>University of Eastern Pangasinan is dedicated to producing highly competent and morally responsible UEPians through innovation, industry-focused education, sustainable research, and values-based curriculum. We commit to shaping ethical trailblazers bringing our principle-centered culture defining our values of Maka-Diyos, Marunong and Malinis.</p>
+      </div>
+    </div>
+
+    <!-- Animated Stats Section -->
+    <div class="stats-row" id="statsRow">
+      <div class="stat-item">
+        <div class="stat-number" id="statStudents">0</div>
+        <div class="stat-label"><i class="fas fa-users"></i> Enrolled Students</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="statFaculty">0</div>
+        <div class="stat-label"><i class="fas fa-chalkboard"></i> Faculty & Experts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="statPrograms">0</div>
+        <div class="stat-label"><i class="fas fa-graduation-cap"></i> Degree Programs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="statPartners">0</div>
+        <div class="stat-label"><i class="fas fa-handshake"></i> Global Partners</div>
+      </div>
+    </div>
+
+    <!-- Awards & Recognitions - With Images -->
+    <div class="content-card">
+      <h3 style="color: #76232f; display: flex; gap: 10px; align-items: center;">
+        <i class="fas fa-trophy" style="color:#8b3c2c;"></i> Accreditations & Recognitions
+      </h3>
+      <div class="image-badge-group" id="awardsImages"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><i class="fas fa-university"></i> University of Eastern Pangasinan – Binalonan Campus | nurturing excellence deeply rooted in community</p>
+    <p style="margin-top: 12px; font-size: 0.85rem;"><i class="fas fa-map-pin"></i> Binalonan, Pangasinan, Philippines 2436 | <i class="fas fa-envelope"></i> uep.binalonan@uep.edu.ph</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // ========== MOBILE MENU ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('closeMobileBtn');
+    const body = document.body;
+
+    if (hamburger && mobileMenu && closeBtn) {
+      hamburger.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+        body.style.overflow = 'hidden';
+      });
+      closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        body.style.overflow = '';
+      });
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          body.style.overflow = '';
+        });
+      });
+    }
+
+    // ========== DYNAMIC MISSION/VISION/PHILOSOPHY ==========
+    const missionBtn = document.getElementById('btnMission');
+    const visionBtn = document.getElementById('btnVision');
+    const philosophyBtn = document.getElementById('btnPhilosophy');
+    const dynamicArea = document.getElementById('dynamicContentArea');
+
+    const dynamicData = {
+      mission: {
+        title: "Mission",
+        text: "University of Eastern Pangasinan is dedicated to producing highly competent and morally responsible UEPians through innovation, industry-focused education, sustainable research, and values-based curriculum. We commit to shaping ethical trailblazers bringing our principle-centered culture defining our values of Maka-Diyos, Marunong and Malinis."
+      },
+      vision: {
+        title: "Vision",
+        text: "A leading local university known to develop excellent and virtuous professionals who are catalysts of progress for both the local and global communities. We envision UEP Binalonan as a center of excellence in Eastern Pangasinan, producing graduates who are globally competitive and locally responsive."
+      },
+      philosophy: {
+        title: "Core Values",
+        text: "UPRIGHTNESS - We uphold integrity, honesty, and moral principles in everything we do. EXCELLENCE - We strive for the highest quality in education, research, and community service. PASSION - We are dedicated and enthusiastic in serving our students, community, and nation with love and commitment."
+      }
+    };
+
+    function setActive(active) {
+      [missionBtn, visionBtn, philosophyBtn].forEach(btn => btn.classList.remove('active'));
+      active.classList.add('active');
+    }
+
+    function updateContent(type) {
+      dynamicArea.style.opacity = '0';
+      setTimeout(() => {
+        dynamicArea.innerHTML = `<h2><i class="fas fa-${type === 'mission' ? 'flag-checkered' : type === 'vision' ? 'binoculars' : 'heart'}"></i> ${dynamicData[type].title}</h2><p>${dynamicData[type].text}</p>`;
+        dynamicArea.style.opacity = '1';
+      }, 120);
+    }
+
+    if (missionBtn && visionBtn && philosophyBtn) {
+      missionBtn.addEventListener('click', () => { setActive(missionBtn); updateContent('mission'); });
+      visionBtn.addEventListener('click', () => { setActive(visionBtn); updateContent('vision'); });
+      philosophyBtn.addEventListener('click', () => { setActive(philosophyBtn); updateContent('philosophy'); });
+    }
+
+    // ========== STATS COUNTERS WITH OBSERVER ==========
+    const statStudents = document.getElementById('statStudents');
+    const statFaculty = document.getElementById('statFaculty');
+    const statPrograms = document.getElementById('statPrograms');
+    const statPartners = document.getElementById('statPartners');
+
+    const statsTargets = { students: 15342, faculty: 245, programs: 8, partners: 2 };
+    let statsAnimated = false;
+
+    function animateNumber(element, start, end, duration = 1500) {
+      let startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.innerText = value.toLocaleString();
+        if (progress < 1) requestAnimationFrame(step);
+        else element.innerText = end.toLocaleString();
+      }
+      requestAnimationFrame(step);
+    }
+
+    function startStats() {
+      if (statsAnimated) return;
+      statsAnimated = true;
+      animateNumber(statStudents, 0, statsTargets.students, 1500);
+      animateNumber(statFaculty, 0, statsTargets.faculty, 1300);
+      animateNumber(statPrograms, 0, statsTargets.programs, 1200);
+      animateNumber(statPartners, 0, statsTargets.partners, 1400);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !statsAnimated) startStats();
+    }, { threshold: 0.3 });
+    const statsContainer = document.getElementById('statsRow');
+    if (statsContainer) statsObserver.observe(statsContainer);
+
+    // ========== DYNAMIC BADGES AS IMAGES ==========
+    const awardsImages = [
+      { img: "we1.jpg", name: "GLOBAL INNOVATIVE UNIVERSITIES" },
+      { img: "we2.jpg", name: "STUDENT SUPPORT AND ENGAGEMENT" },
+      { img: "we3.jpg", name: "CRISIS MANAGEMENT" },
+      { img: "we4.jpg", name: "UNIVERSITY BRAND AND REPUTATION" }
+    ];
+
+    const awardsContainer = document.getElementById('awardsImages');
+    if (awardsContainer) {
+      awardsContainer.innerHTML = awardsImages.map(award => `
+        <div class="image-badge-item">
+          <img src="${award.img}" alt="${award.name}" loading="lazy" onerror="this.src='https://placehold.co/250x200/76232f/f5e6d9?text=${encodeURIComponent(award.name)}'">
+          <p>${award.name}</p>
+        </div>
+      `).join('');
+    }
+
+    // ========== CARD HOVER MICRO INTERACTIONS ==========
+    document.querySelectorAll('.card, .stat-item, .image-badge-item').forEach(el => {
+      el.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          if (this.classList.contains('card')) this.style.transform = '';
+          else if (this.classList.contains('stat-item')) this.style.transform = '';
+          else if (this.classList.contains('image-badge-item')) this.style.transform = '';
+          else this.style.transform = '';
+        }, 150);
+      });
+    });
+
+    // ========== ACTIVE NAV LINK SYNC ==========
+    const desktopLinks = document.querySelectorAll('#desktopNav a');
+    desktopLinks.forEach(link => {
+      if (link.innerText.trim() === 'About') link.classList.add('active');
+      link.addEventListener('click', function() {
+        desktopLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // ========== FOOTER DYNAMIC YEAR ==========
+    const footerPara = document.querySelector('footer p:first-child');
+    if (footerPara) {
+      const year = new Date().getFullYear();
+      footerPara.innerHTML = `<i class="fas fa-tree"></i> ${year} University of Eastern Pangasinan – Binalonan Campus | nurturing excellence deeply rooted in community`;
+    }
+
+    // ========== RESPONSIVE CARD HEIGHT ADJUSTMENT ==========
+    function adjustCards() {
+      if (window.innerWidth > 900) {
+        let maxH = 0;
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(c => { c.style.height = 'auto'; maxH = Math.max(maxH, c.offsetHeight); });
+        cards.forEach(c => c.style.height = `${maxH}px`);
+      } else {
+        document.querySelectorAll('.card').forEach(c => c.style.height = 'auto');
+      }
+    }
+    window.addEventListener('resize', () => setTimeout(adjustCards, 100));
+    setTimeout(adjustCards, 200);
+  })();
+</script>
+</body>
+</html>
